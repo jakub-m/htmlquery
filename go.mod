@@ -1,4 +1,4 @@
-module github.com/jakub-m/htmlparser
+module github.com/jakub-m/htmlquery
 
 go 1.16
 
