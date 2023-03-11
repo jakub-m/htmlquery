@@ -71,6 +71,17 @@ func All(matchers ...NodeMatcher) NodeMatcher {
 	}
 }
 
+func Any(matchers ...NodeMatcher) NodeMatcher {
+	return func(n *html.Node) bool {
+		for _, m := range matchers {
+			if m(n) {
+				return true
+			}
+		}
+		return false
+	}
+}
+
 func HasTag(tag string) NodeMatcher {
 	return func(n *html.Node) bool {
 		return n.Type == html.ElementNode && n.Data == tag
